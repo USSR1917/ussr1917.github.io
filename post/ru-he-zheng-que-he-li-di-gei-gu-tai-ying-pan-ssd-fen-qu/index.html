@@ -1,0 +1,206 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>如何正确合理地给固态硬盘SSD分区 | Gridea</title>
+<link rel="shortcut icon" href="https://ussr1917.github.io/favicon.ico?v=1615013270629">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://ussr1917.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="如何正确合理地给固态硬盘SSD分区 | Gridea - Atom Feed" href="https://ussr1917.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="固态硬盘由于其读写速度快，抗震性好，功耗低而受到了越来越多电子爱好者的喜爱和追捧。由于固态硬盘的结构和机械硬盘有本质的不同，固态硬盘要实现真正的性能发挥需要TRIM指令等一些特殊的手段，其中尤其需要注意的是固态硬盘的分区对于硬盘的性能起着至..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://ussr1917.github.io">
+  <img class="avatar" src="https://ussr1917.github.io/images/avatar.png?v=1615013270629" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              如何正确合理地给固态硬盘SSD分区
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-03-06
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>固态硬盘由于其读写速度快，抗震性好，功耗低而受到了越来越多电子爱好者的喜爱和追捧。由于固态硬盘的结构和机械硬盘有本质的不同，固态硬盘要实现真正的性能发挥需要TRIM指令等一些特殊的手段，其中尤其需要注意的是固态硬盘的分区对于硬盘的性能起着至关重要的作用。要想要充分的发挥出SSD盘的性能，还是要少分区</p>
+<!-- more -->
+<h2 id="固态硬盘分区注意事项">固态硬盘分区注意事项：</h2>
+<p>1.开启AHCI模式</p>
+<p>AHCI是Intel所主导的接口标准，专门为SATA接口设计，可以发挥SATA硬盘的潜在加速功能。固态硬盘在AHCI模式状态下，性能至少提升30%。</p>
+<figure data-type="image" tabindex="1"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition001_0.jpg" alt="img" loading="lazy"></figure>
+<p>2.4K对齐</p>
+<p>4K对齐是指以4K扇区格式化的硬盘按照4K规则写入数据形式。固态硬盘的读写单位多为4KB，如果按照4K不对齐对固态硬盘分区，数据会被分储于两个4K扇区之中，造成数据读写速度下降，缩短固态硬盘寿命。4K对齐下的固态硬盘性能比不对齐高出大约25%。</p>
+<h2 id="固态硬盘分区方法">固态硬盘分区方法</h2>
+<p><strong>一、 借助“Diskgen分区工具”</strong></p>
+<ol>
+<li>
+<p>将固态硬盘安装到电脑中，然后准备好一个启动U盘，然后将启动U盘插入电脑，设置开机进入U盘启动，之后进入PE工具界面，然后点击打开“分区工具Diskgen”。</p>
+</li>
+<li>
+<p>在左侧找到点击选中需要分区的SSD固态硬盘，点击快速分区。</p>
+</li>
+<li>
+<figure data-type="image" tabindex="2"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition002_0.jpg" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>在分区操作界面，首先选中分几个区，一般128G固态硬盘分2个分区，256GB固态硬盘分2-4个分区为宜。</p>
+</li>
+<li>
+<p>勾选图中2标注位置的“对齐分区到此扇区的整数倍”进行4K对齐，完成后点击底部的“确定”即可。</p>
+</li>
+</ol>
+<p>点击确定后，Diskgen工具就会按照要求给SSD分区了，完成后，还会自动格式化硬盘，等待完成后，固态硬盘就分好区了。（利用U盘装机大师进行分区步骤及注意事项）</p>
+<p><strong>二、系统自带工具固态硬盘分区</strong></p>
+<ol>
+<li>接入固态硬盘，打开磁盘管理</li>
+<li>选中固态硬盘，右键格式化，设置分区单元大小为4096。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition003_0.jpg" alt="img" loading="lazy"></figure>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">固态硬盘分区注意事项：</a></li>
+<li><a href="#%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E5%88%86%E5%8C%BA%E6%96%B9%E6%B3%95">固态硬盘分区方法</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://ussr1917.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://ussr1917.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

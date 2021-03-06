@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ussr1917.github.io</id>
     <title>Gridea</title>
-    <updated>2021-03-06T06:40:51.876Z</updated>
+    <updated>2021-03-06T06:47:55.899Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ussr1917.github.io"/>
     <link rel="self" href="https://ussr1917.github.io/atom.xml"/>
@@ -10,6 +10,50 @@
     <logo>https://ussr1917.github.io/images/avatar.png</logo>
     <icon>https://ussr1917.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[如何正确合理地给固态硬盘SSD分区]]></title>
+        <id>https://ussr1917.github.io/post/ru-he-zheng-que-he-li-di-gei-gu-tai-ying-pan-ssd-fen-qu/</id>
+        <link href="https://ussr1917.github.io/post/ru-he-zheng-que-he-li-di-gei-gu-tai-ying-pan-ssd-fen-qu/">
+        </link>
+        <updated>2021-03-06T06:41:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>固态硬盘由于其读写速度快，抗震性好，功耗低而受到了越来越多电子爱好者的喜爱和追捧。由于固态硬盘的结构和机械硬盘有本质的不同，固态硬盘要实现真正的性能发挥需要TRIM指令等一些特殊的手段，其中尤其需要注意的是固态硬盘的分区对于硬盘的性能起着至关重要的作用。要想要充分的发挥出SSD盘的性能，还是要少分区</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>固态硬盘由于其读写速度快，抗震性好，功耗低而受到了越来越多电子爱好者的喜爱和追捧。由于固态硬盘的结构和机械硬盘有本质的不同，固态硬盘要实现真正的性能发挥需要TRIM指令等一些特殊的手段，其中尤其需要注意的是固态硬盘的分区对于硬盘的性能起着至关重要的作用。要想要充分的发挥出SSD盘的性能，还是要少分区</p>
+<!-- more -->
+<h2 id="固态硬盘分区注意事项">固态硬盘分区注意事项：</h2>
+<p>1.开启AHCI模式</p>
+<p>AHCI是Intel所主导的接口标准，专门为SATA接口设计，可以发挥SATA硬盘的潜在加速功能。固态硬盘在AHCI模式状态下，性能至少提升30%。</p>
+<figure data-type="image" tabindex="1"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition001_0.jpg" alt="img" loading="lazy"></figure>
+<p>2.4K对齐</p>
+<p>4K对齐是指以4K扇区格式化的硬盘按照4K规则写入数据形式。固态硬盘的读写单位多为4KB，如果按照4K不对齐对固态硬盘分区，数据会被分储于两个4K扇区之中，造成数据读写速度下降，缩短固态硬盘寿命。4K对齐下的固态硬盘性能比不对齐高出大约25%。</p>
+<h2 id="固态硬盘分区方法">固态硬盘分区方法</h2>
+<p><strong>一、 借助“Diskgen分区工具”</strong></p>
+<ol>
+<li>
+<p>将固态硬盘安装到电脑中，然后准备好一个启动U盘，然后将启动U盘插入电脑，设置开机进入U盘启动，之后进入PE工具界面，然后点击打开“分区工具Diskgen”。</p>
+</li>
+<li>
+<p>在左侧找到点击选中需要分区的SSD固态硬盘，点击快速分区。</p>
+</li>
+<li>
+<figure data-type="image" tabindex="2"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition002_0.jpg" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>在分区操作界面，首先选中分几个区，一般128G固态硬盘分2个分区，256GB固态硬盘分2-4个分区为宜。</p>
+</li>
+<li>
+<p>勾选图中2标注位置的“对齐分区到此扇区的整数倍”进行4K对齐，完成后点击底部的“确定”即可。</p>
+</li>
+</ol>
+<p>点击确定后，Diskgen工具就会按照要求给SSD分区了，完成后，还会自动格式化硬盘，等待完成后，固态硬盘就分好区了。（利用U盘装机大师进行分区步骤及注意事项）</p>
+<p><strong>二、系统自带工具固态硬盘分区</strong></p>
+<ol>
+<li>接入固态硬盘，打开磁盘管理</li>
+<li>选中固态硬盘，右键格式化，设置分区单元大小为4096。</li>
+</ol>
+<figure data-type="image" tabindex="3"><img src="https://www.crucial.cn/sites/default/files/content-hub-image/partition003_0.jpg" alt="img" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://ussr1917.github.io/post/hello-gridea/</id>
